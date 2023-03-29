@@ -1,5 +1,6 @@
 import axios from "axios";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import CrudDemo from "./CrudDemo";
 
 const React = () => {
   return (
@@ -48,6 +49,7 @@ const DemoRouter = () => {
           <Route path="/person" component={Person} />
           <Route path="/about" component={About} />
           <Route component={ComponentNotFound} />
+          <Route path="/curdDemo" component={CrudDemo} />
         </Switch>
       </Router>
     </div>
@@ -77,6 +79,14 @@ const Header = () => {
             About
           </Link>
         </li>
+        <li className="nav-item">
+          <Link className="nav-link" to="/crudDemo">
+            CrudDemo
+          </Link>
+        </li>
+        <button type="button" className="btn btn-info">
+          sign up
+        </button>
       </ul>
     </nav>
   );
