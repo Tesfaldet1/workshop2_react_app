@@ -49,7 +49,7 @@ const DemoRouter = () => {
           <Route path="/person" component={Person} />
           <Route path="/about" component={About} />
           <Route component={ComponentNotFound} />
-          <Route path="/curdDemo" component={CrudDemo} />
+          <Route path="/crud" component={CrudDemo} />
         </Switch>
       </Router>
     </div>
@@ -80,7 +80,7 @@ const Header = () => {
           </Link>
         </li>
         <li className="nav-item">
-          <Link className="nav-link" to="/crudDemo">
+          <Link className="nav-link" to="/crud">
             CrudDemo
           </Link>
         </li>
