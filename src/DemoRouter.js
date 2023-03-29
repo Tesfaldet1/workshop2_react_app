@@ -43,6 +43,7 @@ const DemoRouter = () => {
     <div className="container">
       <Router>
         <Header />
+
         <Switch>
           <Route exact path="/" component={React} />
           <Route path="/home" component={Home} />
@@ -81,9 +82,10 @@ const Header = () => {
         </li>
         <li className="nav-item">
           <Link className="nav-link" to="/crud">
-            CrudDemo
+            Crud Demo
           </Link>
         </li>
+
         <button type="button" className="btn btn-info">
           sign up
         </button>

@@ -7,4 +7,4 @@ import DemoRouter from "./DemoRouter";
 import CrudDemo from "./CrudDemo";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
-root.render(<CrudDemo />);
+root.render(<DemoRouter />);
