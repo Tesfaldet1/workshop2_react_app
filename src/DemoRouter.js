@@ -1,95 +1,75 @@
-import axios from "axios";
-import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
-import CrudDemo from "./CrudDemo";
+import React from "react";
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Link,
+  Redirect,
+} from "react-router-dom";
+import CrudDemo, { PersonDetails } from "./CrudDemo";
 
-const React = () => {
-  return (
-    <div className="container">
-      <h4>Welcome Page </h4>
-    </div>
-  );
-};
-const Home = () => {
-  return (
-    <div className="container">
-      <h4>Home component! </h4>
-    </div>
-  );
-};
-const Person = () => {
-  return (
-    <div className="container">
-      <h4>Person component! </h4>
-    </div>
-  );
-};
-
-const About = () => {
-  return (
-    <div className="container">
-      <h4>About US </h4>
-    </div>
-  );
-};
-const ComponentNotFound = () => {
-  return (
-    <div className="container">
-      <h4>Component not found! </h4>
-    </div>
-  );
-};
 const DemoRouter = () => {
   return (
-    <div className="container">
+    <div>
       <Router>
         <Header />
-
         <Switch>
-          <Route exact path="/" component={React} />
+          <Route exact path="/" component={Welcome} />
           <Route path="/home" component={Home} />
           <Route path="/person" component={Person} />
           <Route path="/about" component={About} />
-          <Route component={ComponentNotFound} />
+          <Route path="/person" component={Person} />
           <Route path="/crud" component={CrudDemo} />
+          <Route path="/details/:id" component={PersonDetails} />
+
+          <Route component={NotFound} />
         </Switch>
       </Router>
     </div>
   );
 };
+
+const Welcome = () => "Welcome Page";
+const Home = () => "Home Page";
+const About = () => "About Us Page";
+const Person = () => <Redirect to={"/crud"} />;
+const NotFound = () => "NotFound Page";
+
 const Header = () => {
   return (
-    <nav>
-      <ul className="nav nav-pills nav-fill bg-dark text-whight">
-        <li className="nav-item">
-          <Link className="nav-link" to="/">
-            React
+    <nav className="navbar navbar-expand-sm navbar-dark bg-dark">
+      <div className="container-fluid">
+        <Link className="navbar-brand" to="/">
+          React
+        </Link>
+        <ul className="navbar-nav me-auto">
+          <li className="nav-item">
+            <Link className="nav-link" to="/home">
+              Home
+            </Link>
+          </li>
+          <li className="nav-item">
+            <Link className="nav-link" to="/person">
+              Person
+            </Link>
+          </li>
+          <li className="nav-item">
+            <Link className="nav-link" to="/about">
+              About Us
+            </Link>
+          </li>
+          <li className="nav-item">
+            <Link className="nav-link active" to="/crud">
+              CRUD
+            </Link>
+          </li>
+        </ul>
+        <form className="d-flex">
+          <Link className="btn btn-primary" to="/person">
+            Sign Up
           </Link>
-        </li>
-        <li className="nav-item">
-          <Link className="nav-link" to="/home">
-            Home
-          </Link>
-        </li>
-        <li className="nav-item">
-          <Link className="nav-link" to="/person">
-            Person
-          </Link>
-        </li>
-        <li className="nav-item">
-          <Link className="nav-link" to="/about">
-            About
-          </Link>
-        </li>
-        <li className="nav-item">
-          <Link className="nav-link" to="/crud">
-            Crud Demo
-          </Link>
-        </li>
-
-        <button type="button" className="btn btn-info">
-          sign up
-        </button>
-      </ul>
+        </form>
+      </div>
     </nav>
   );
 };
